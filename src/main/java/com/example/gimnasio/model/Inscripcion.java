@@ -1,10 +1,5 @@
 package com.example.gimnasio.model;
 
-import com.example.gimnasio.model.Cliente;
-import com.example.gimnasio.model.Entrenador;
-import com.example.gimnasio.model.PlanEntrenamiento;
-import com.example.gimnasio.model.ServicioAdicional;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,18 +15,14 @@ public class Inscripcion {
     private Cliente theCliente;
     private PlanEntrenamiento thePlan;
     private Entrenador theEntrenador;
-    private List<ServicioAdicional> listServicioAdicionalInscripcion = new ArrayList<>();
+    private List<ServicioAdicional> listServicioAdicionalInscripcion;
 
-    public Inscripcion(String codigo, LocalDate fechaInscripcion, int duracionContratada, double descuento, Cliente cliente, PlanEntrenamiento plan) {
-        this.codigo = codigo;
-        this.fechaInscripcion = fechaInscripcion;
-        this.duracionContratada = duracionContratada;
-        this.descuento = descuento;
-        this.theCliente = cliente;
-        this.thePlan = plan;
-        if (cliente != null) {
-            cliente.agregarInscripcion(this);
-        }
+    public Inscripcion(Builder builder) {
+        this.codigo = builder.codigo;
+        this.fechaInscripcion = builder.fechaInscripcion;
+        this.duracionContratada = builder.duracionContratada;
+        this.descuento = builder.descuento;
+        this.listServicioAdicionalInscripcion = new ArrayList<>();
     }
 
     public void agregarServicio(ServicioAdicional servicio) {
@@ -106,4 +97,44 @@ public class Inscripcion {
     public List<ServicioAdicional> getListServicioAdicionalInscripcion() {
         return listServicioAdicionalInscripcion;
     }
+
+    public static class Builder{
+        private String codigo;
+        private LocalDate fechaInscripcion;
+        private int duracionContratada;
+        private double descuento;
+        private double valorFinal;
+
+        public Builder codigo(String codigo){
+            this.codigo = codigo;
+            return this;
+        }
+
+        public Builder fechaInscripcion(LocalDate fechaInscripcion){
+            this.fechaInscripcion = fechaInscripcion;
+            return this;
+        }
+
+        public Builder duracionContratada(int duracionContratada){
+            this.duracionContratada = duracionContratada;
+            return this;
+        }
+
+        public Builder descuento(double descuento){
+            this.descuento = descuento;
+            return this;
+        }
+
+        public Builder valorFinal(double valorFinal){
+            this.valorFinal = valorFinal;
+            return this;
+        }
+
+        public Inscripcion build(){
+            return new Inscripcion(this);
+        }
+
+
+    }
+
 }

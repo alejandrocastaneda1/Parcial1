@@ -46,6 +46,9 @@ public class Gimnasio {
 
     public void registrarInscripcion(Inscripcion inscripcion) {
         listInscripciones.add(inscripcion);
+        if (inscripcion.getTheCliente() != null) {
+            inscripcion.getTheCliente().agregarInscripcion(inscripcion);
+        }
     }
 
     public Cliente buscarClientePorTelefono(String telefono) {
