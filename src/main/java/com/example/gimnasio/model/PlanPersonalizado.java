@@ -9,7 +9,7 @@ public class PlanPersonalizado extends PlanEntrenamiento {
     private String especialidadRequerida;
     private String objetivosCliente;
 
-    private PlanPersonalizado(Builder builder) {
+    public PlanPersonalizado(Builder builder) {
         super(builder.codigo, builder.nombre, builder.descripcion, builder.duracionMeses, builder.valorMensual, builder.estado);
         this.cantidadSesionesEntrenador = builder.cantidadSesionesEntrenador;
         this.especialidadRequerida = builder.especialidadRequerida;

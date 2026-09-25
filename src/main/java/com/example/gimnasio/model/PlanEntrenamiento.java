@@ -1,6 +1,7 @@
 package com.example.gimnasio.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class PlanEntrenamiento {
@@ -66,6 +67,10 @@ public abstract class PlanEntrenamiento {
     }
 
     public List<Beneficio> getListBeneficios() {
+        return listBeneficios;
+    }
+
+    public List<Beneficio> getListaBeneficios() {
         return listBeneficios;
     }
 }

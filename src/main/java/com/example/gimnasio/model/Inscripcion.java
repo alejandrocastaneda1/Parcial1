@@ -18,11 +18,21 @@ public class Inscripcion {
     private List<ServicioAdicional> listServicioAdicionalInscripcion;
 
     public Inscripcion(Builder builder) {
+
         this.codigo = builder.codigo;
         this.fechaInscripcion = builder.fechaInscripcion;
         this.duracionContratada = builder.duracionContratada;
         this.descuento = builder.descuento;
+        this.valorFinal = builder.valorFinal;
+
+        this.theCliente = builder.theCliente;
+        this.thePlan = builder.thePlan;
+
         this.listServicioAdicionalInscripcion = new ArrayList<>();
+
+        if (theCliente != null) {
+            theCliente.agregarInscripcion(this);
+        }
     }
 
     public void agregarServicio(ServicioAdicional servicio) {
@@ -30,7 +40,9 @@ public class Inscripcion {
     }
 
     public void asignarEntrenador(Entrenador entrenador) {
+
         this.theEntrenador = entrenador;
+
         if (entrenador != null) {
             entrenador.agregarInscripcion(this);
             entrenador.agregarCliente(this.theCliente);
@@ -42,23 +54,37 @@ public class Inscripcion {
     }
 
     public double calcularValorServicios() {
+
         double total = 0.0;
+
         for (ServicioAdicional servicio : listServicioAdicionalInscripcion) {
             total += servicio.getPrecio();
         }
+
         return total;
     }
 
     public double calcularCostoEntrenador() {
+
         if (theEntrenador == null) {
             return 0.0;
         }
-        return thePlan.calcularCostoEntrenador(theEntrenador.getTarifaSesion());
+
+        return thePlan.calcularCostoEntrenador(
+                theEntrenador.getTarifaSesion()
+        );
     }
 
     public double calcularValorFinal() {
-        double total = calcularValorPlan() + calcularValorServicios() + calcularCostoEntrenador() - descuento;
+
+        double total =
+                calcularValorPlan()
+                        + calcularValorServicios()
+                        + calcularCostoEntrenador()
+                        - descuento;
+
         this.valorFinal = total;
+
         return total;
     }
 
@@ -98,43 +124,56 @@ public class Inscripcion {
         return listServicioAdicionalInscripcion;
     }
 
-    public static class Builder{
+
+    public static class Builder {
+
         private String codigo;
         private LocalDate fechaInscripcion;
         private int duracionContratada;
         private double descuento;
         private double valorFinal;
 
-        public Builder codigo(String codigo){
+        private Cliente theCliente;
+        private PlanEntrenamiento thePlan;
+
+
+        public Builder codigo(String codigo) {
             this.codigo = codigo;
             return this;
         }
 
-        public Builder fechaInscripcion(LocalDate fechaInscripcion){
+        public Builder fechaInscripcion(LocalDate fechaInscripcion) {
             this.fechaInscripcion = fechaInscripcion;
             return this;
         }
 
-        public Builder duracionContratada(int duracionContratada){
+        public Builder duracionContratada(int duracionContratada) {
             this.duracionContratada = duracionContratada;
             return this;
         }
 
-        public Builder descuento(double descuento){
+        public Builder descuento(double descuento) {
             this.descuento = descuento;
             return this;
         }
 
-        public Builder valorFinal(double valorFinal){
+        public Builder valorFinal(double valorFinal) {
             this.valorFinal = valorFinal;
             return this;
         }
 
-        public Inscripcion build(){
-            return new Inscripcion(this);
+        public Builder cliente(Cliente cliente) {
+            this.theCliente = cliente;
+            return this;
         }
 
+        public Builder plan(PlanEntrenamiento plan) {
+            this.thePlan = plan;
+            return this;
+        }
 
+        public Inscripcion build() {
+            return new Inscripcion(this);
+        }
     }
-
 }
