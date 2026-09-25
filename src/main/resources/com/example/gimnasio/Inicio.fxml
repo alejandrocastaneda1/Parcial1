@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.gimnasio.viewController.InicioViewController"
+            stylesheets="@style.css"
+            styleClass="root">
+
+    <!-- ==================== BARRA LATERAL ==================== -->
+
+    <left>
+
+        <VBox prefWidth="230"
+              styleClass="sidebar">
+
+            <padding>
+                <Insets top="28"
+                        right="18"
+                        bottom="25"
+                        left="18"/>
+            </padding>
+
+            <!-- LOGO -->
+
+            <VBox spacing="3">
+
+                <Label text="FITZONE"
+                       styleClass="brand"/>
+
+                <Label text="GYM MANAGEMENT"
+                       styleClass="brand-subtitle"/>
+
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <!-- MENÚ -->
+
+            <VBox spacing="8">
+
+                <!-- INICIO -->
+
+                <Button text="⌂    Inicio"
+                        styleClass="nav-button, nav-button-active"/>
+
+
+                <!-- CLIENTES -->
+
+                <Button text="👤    Clientes"
+                        onAction="#mostrarClientes"
+                        styleClass="nav-button"/>
+
+
+                <!-- ENTRENADORES -->
+
+                <Button text="🏋    Entrenadores"
+                        onAction="#mostrarEntrenadores"
+                        styleClass="nav-button"/>
+
+
+                <!-- PLANES -->
+
+                <Button text="▣    Planes"
+                        onAction="#mostrarPlanes"
+                        styleClass="nav-button"/>
+
+
+                <!-- BENEFICIOS -->
+
+                <Button text="◆    Beneficios"
+                        onAction="#mostrarServicios"
+                        styleClass="nav-button"/>
+
+
+                <!-- INSCRIPCIONES -->
+
+                <Button text="✎    Inscripciones"
+                        onAction="#mostrarInscripciones"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <!-- PIE DEL MENÚ -->
+
+            <Label text="Sistema de Gestión"
+                   styleClass="sidebar-footer"/>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- ==================== CONTENIDO ==================== -->
+
+    <center>
+
+        <VBox spacing="28"
+              styleClass="content">
+
+            <padding>
+                <Insets top="35"
+                        right="40"
+                        bottom="35"
+                        left="40"/>
+            </padding>
+
+
+            <!-- ==================== ENCABEZADO ==================== -->
+
+            <VBox spacing="6">
+
+                <Label text="Panel principal"
+                       styleClass="page-title"/>
+
+                <Label text="Bienvenido al sistema de gestión de tu gimnasio."
+                       styleClass="page-subtitle"/>
+
+            </VBox>
+
+
+            <!-- ==================== TARJETAS DE ESTADÍSTICAS ==================== -->
+
+            <HBox spacing="18">
+
+
+                <!-- CLIENTES -->
+
+                <VBox spacing="8"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="stat-card">
+
+                    <Label text="CLIENTES"
+                           styleClass="stat-title"/>
+
+                    <Label fx:id="lblClientes"
+                           text="3"
+                           styleClass="stat-number"/>
+
+                    <Label text="Clientes registrados"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+
+                <!-- ENTRENADORES -->
+
+                <VBox spacing="8"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="stat-card">
+
+                    <Label text="ENTRENADORES"
+                           styleClass="stat-title"/>
+
+                    <Label fx:id="lblEntrenadores"
+                           text="0"
+                           styleClass="stat-number"/>
+
+                    <Label text="Entrenadores registrados"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+
+                <!-- PLANES -->
+
+                <VBox spacing="8"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="stat-card">
+
+                    <Label text="PLANES"
+                           styleClass="stat-title"/>
+
+                    <Label fx:id="lblPlanes"
+                           text="3"
+                           styleClass="stat-number"/>
+
+                    <Label text="Planes disponibles"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+
+                <!-- INSCRIPCIONES -->
+
+                <VBox spacing="8"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="stat-card">
+
+                    <Label text="INSCRIPCIONES"
+                           styleClass="stat-title"/>
+
+                    <Label fx:id="lblInscripciones"
+                           text="0"
+                           styleClass="stat-number"/>
+
+                    <Label text="Inscripciones registradas"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+            </HBox>
+
+
+            <!-- ==================== PARTE INFERIOR ==================== -->
+
+            <HBox spacing="20"
+                  VBox.vgrow="ALWAYS">
+
+
+                <!-- ==================== ACCIONES RÁPIDAS ==================== -->
+
+                <VBox spacing="15"
+                      prefWidth="520"
+                      styleClass="large-card">
+
+                    <Label text="Acciones rápidas"
+                           styleClass="card-title"/>
+
+                    <Label text="Accede rápidamente a los módulos principales."
+                           styleClass="card-description"/>
+
+
+                    <VBox spacing="12">
+
+
+                        <!-- CLIENTES -->
+
+                        <Button text="👤   Gestionar clientes"
+                                onAction="#mostrarClientes"
+                                styleClass="action-button"/>
+
+
+                        <!-- ENTRENADORES -->
+
+                        <Button text="🏋   Gestionar entrenadores"
+                                onAction="#mostrarEntrenadores"
+                                styleClass="action-button"/>
+
+
+                        <!-- PLANES -->
+
+                        <Button text="▣   Gestionar planes"
+                                onAction="#mostrarPlanes"
+                                styleClass="action-button"/>
+
+
+                        <!-- INSCRIPCIONES -->
+
+                        <Button text="✎   Registrar inscripción"
+                                onAction="#mostrarInscripciones"
+                                styleClass="action-button"/>
+
+                    </VBox>
+
+                </VBox>
+
+
+                <!-- ==================== INFORMACIÓN ==================== -->
+
+                <VBox spacing="18"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="large-card">
+
+                    <Label text="Información del sistema"
+                           styleClass="card-title"/>
+
+
+                    <!-- GESTIÓN -->
+
+                    <Label text="GESTIÓN"
+                           styleClass="info-title"/>
+
+                    <Label text="Administra clientes, planes y beneficios desde un solo lugar."
+                           wrapText="true"
+                           styleClass="card-description"/>
+
+
+
+
+                    <!-- ESTADO -->
+
+                    <Label text="ESTADO"
+                           styleClass="info-title"/>
+
+                    <Label text="Sistema listo para comenzar a registrar información."
+                           styleClass="card-description"/>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

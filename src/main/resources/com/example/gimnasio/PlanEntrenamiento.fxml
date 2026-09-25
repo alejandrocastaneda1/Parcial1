@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.gimnasio.viewController.PlanEntrenamientoViewController">
+
+    <!-- ========================= -->
+    <!-- BARRA LATERAL -->
+    <!-- ========================= -->
+
+    <left>
+
+        <VBox prefWidth="230"
+              style="-fx-background-color: #171717;">
+
+            <padding>
+                <Insets top="28"
+                        right="18"
+                        bottom="25"
+                        left="18"/>
+            </padding>
+
+
+            <!-- LOGO -->
+
+            <VBox spacing="3">
+
+                <Label text="FITZONE"
+                       style="-fx-text-fill: #d6a85f;
+                              -fx-font-size: 25px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="GYM MANAGEMENT"
+                       style="-fx-text-fill: #888888;
+                              -fx-font-size: 11px;"/>
+
+            </VBox>
+
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <!-- MENU -->
+
+            <VBox spacing="8">
+
+                <Button text="⌂    Inicio"
+                        onAction="#abrirInicio"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+
+                <Button text="👤    Clientes"
+                        onAction="#abrirClientes"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+
+                <Button text="▣    Planes"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: #d6a85f;
+                               -fx-text-fill: #171717;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+
+                <Button text="◆    Beneficios"
+                        onAction="#abrirBeneficios"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+            </VBox>
+
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <Label text="Sistema de Gestión"
+                   style="-fx-text-fill: #666666;
+                          -fx-font-size: 11px;"/>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- ========================= -->
+    <!-- CONTENIDO -->
+    <!-- ========================= -->
+
+    <center>
+
+        <VBox spacing="22"
+              style="-fx-background-color: #f4efe6;">
+
+            <padding>
+                <Insets top="35"
+                        right="40"
+                        bottom="35"
+                        left="40"/>
+            </padding>
+
+
+            <!-- TITULO -->
+
+            <VBox spacing="6">
+
+                <Label text="Planes de entrenamiento"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 30px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="Administra los planes disponibles para los clientes del gimnasio."
+                       style="-fx-text-fill: #777777;
+                              -fx-font-size: 14px;"/>
+
+            </VBox>
+
+
+            <!-- ========================= -->
+            <!-- FORMULARIO -->
+            <!-- ========================= -->
+
+            <VBox spacing="15"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+
+                <Label text="Registrar plan"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 18px;
+                              -fx-font-weight: bold;"/>
+
+
+                <GridPane hgap="15"
+                          vgap="12">
+
+                    <columnConstraints>
+
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="20"/>
+
+                    </columnConstraints>
+
+
+                    <!-- TIPO -->
+
+                    <Label text="Tipo de plan"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <ComboBox fx:id="comboTipo"
+                              GridPane.columnIndex="0"
+                              GridPane.rowIndex="1"
+                              prefWidth="160"/>
+
+
+                    <!-- CODIGO -->
+
+                    <Label text="Código"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtCodigo"
+                               promptText="Ej: BAS-002"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"/>
+
+
+                    <!-- NOMBRE -->
+
+                    <Label text="Nombre"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtNombre"
+                               promptText="Nombre del plan"
+                               GridPane.columnIndex="2"
+                               GridPane.rowIndex="1"/>
+
+
+                    <!-- DURACIÓN -->
+
+                    <Label text="Duración (meses)"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtDuracion"
+                               promptText="Ej: 6"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="1"/>
+
+
+                    <!-- VALOR -->
+
+                    <Label text="Valor mensual"
+                           GridPane.columnIndex="4"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtValor"
+                               promptText="Ej: 120000"
+                               GridPane.columnIndex="4"
+                               GridPane.rowIndex="1"/>
+
+
+                    <!-- DESCRIPCIÓN -->
+
+                    <Label text="Descripción"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="2"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextArea fx:id="txtDescripcion"
+                              promptText="Descripción del plan"
+                              prefRowCount="2"
+                              GridPane.columnIndex="0"
+                              GridPane.rowIndex="3"
+                              GridPane.columnSpan="2"/>
+
+
+                    <!-- ESTADO -->
+
+                    <Label text="Estado"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="2"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <ComboBox fx:id="comboEstado"
+                              GridPane.columnIndex="2"
+                              GridPane.rowIndex="3"
+                              prefWidth="160"/>
+
+
+                    <!-- SESIONES -->
+
+                    <Label text="Sesiones con entrenador"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="2"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtSesiones"
+                               promptText="Ej: 8"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="3"/>
+
+
+                    <!-- ESPECIALIDAD -->
+
+                    <Label text="Especialidad"
+                           GridPane.columnIndex="4"
+                           GridPane.rowIndex="2"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtEspecialidad"
+                               promptText="Ej: Musculación"
+                               GridPane.columnIndex="4"
+                               GridPane.rowIndex="3"/>
+
+                </GridPane>
+
+
+                <!-- OBJETIVOS -->
+
+                <Label text="Objetivos del cliente"
+                       style="-fx-text-fill: #555555;
+                              -fx-font-size: 12px;"/>
+
+                <TextArea fx:id="txtObjetivos"
+                          promptText="Objetivos del cliente..."
+                          prefHeight="55"/>
+
+
+                <!-- BOTONES -->
+
+                <HBox spacing="10">
+
+                    <Button text="＋  Registrar plan"
+                            onAction="#crearPlan"
+                            style="-fx-background-color: #d6a85f;
+                                   -fx-text-fill: #171717;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+
+                    <Button text="Cargar"
+                            onAction="#cargarPlan"
+                            style="-fx-background-color: #292929;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+
+                    <Button text="Eliminar"
+                            onAction="#eliminarPlan"
+                            style="-fx-background-color: #8d4545;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+
+                    <Button text="Limpiar"
+                            onAction="#limpiar"
+                            style="-fx-background-color: #e4dfd6;
+                                   -fx-text-fill: #333333;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+                </HBox>
+
+            </VBox>
+
+
+            <!-- ========================= -->
+            <!-- TABLA -->
+            <!-- ========================= -->
+
+            <VBox spacing="12"
+                  VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+
+                <Label text="Planes registrados"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 18px;
+                              -fx-font-weight: bold;"/>
+
+
+                <TableView fx:id="tablaPlanes"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="colCodigo"
+                                     text="Código"
+                                     prefWidth="90"/>
+
+                        <TableColumn fx:id="colNombre"
+                                     text="Nombre"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="colDescripcion"
+                                     text="Descripción"
+                                     prefWidth="230"/>
+
+                        <TableColumn fx:id="colDuracion"
+                                     text="Meses"
+                                     prefWidth="70"/>
+
+                        <TableColumn fx:id="colValor"
+                                     text="Valor mensual"
+                                     prefWidth="110"/>
+
+                        <TableColumn fx:id="colEstado"
+                                     text="Estado"
+                                     prefWidth="120"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

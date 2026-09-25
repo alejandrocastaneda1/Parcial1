@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gimnasio.viewController.InscripcionViewController"
+            prefWidth="1250"
+            prefHeight="760"
+            style="-fx-background-color: #F7F1E5;">
+
+    <!-- SIDEBAR -->
+
+    <left>
+
+        <VBox prefWidth="220"
+              spacing="15"
+              alignment="TOP_CENTER"
+              style="-fx-background-color: #171717;">
+
+            <padding>
+                <Insets top="30" right="15" bottom="25" left="15"/>
+            </padding>
+
+            <Label text="SMARTGYM"
+                   style="-fx-text-fill: #D6A84F;
+                          -fx-font-size: 25px;
+                          -fx-font-weight: bold;"/>
+
+            <Label text="GESTIÓN"
+                   style="-fx-text-fill: #888888;
+                          -fx-font-size: 11px;"/>
+
+
+            <Button text="⌂   Inicio"
+                    onAction="#abrirInicio"
+                    prefWidth="185"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+
+            <Button text="♙   Clientes"
+                    onAction="#abrirClientes"
+                    prefWidth="185"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+
+            <Button text="★   Entrenadores"
+                    onAction="#abrirEntrenadores"
+                    prefWidth="185"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+
+            <Button text="▣   Planes"
+                    onAction="#abrirPlanes"
+                    prefWidth="185"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+
+            <Button text="◆   Beneficios"
+                    onAction="#abrirBeneficios"
+                    prefWidth="185"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+
+            <Button text="＋   Inscripciones"
+                    prefWidth="185"
+                    style="-fx-background-color: #D6A84F;
+                           -fx-text-fill: #171717;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-background-radius: 8;"/>
+
+
+            <VBox VBox.vgrow="ALWAYS"/>
+
+
+            <Label text="SMARTGYM 2026"
+                   style="-fx-text-fill: #666666;
+                          -fx-font-size: 11px;"/>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <center>
+
+        <VBox spacing="18">
+
+            <padding>
+                <Insets top="30"
+                        right="35"
+                        bottom="30"
+                        left="35"/>
+            </padding>
+
+
+            <!-- TITULO -->
+
+            <VBox spacing="5">
+
+                <Label text="Registrar inscripción"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 30px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="Registra clientes, planes, entrenadores y calcula el valor de la inscripción."
+                       style="-fx-text-fill: #777777;
+                              -fx-font-size: 14px;"/>
+
+            </VBox>
+
+
+            <!-- FORMULARIO -->
+
+            <VBox spacing="15"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-border-color: #E5DED1;
+                         -fx-border-radius: 12;">
+
+                <padding>
+                    <Insets top="20"
+                            right="20"
+                            bottom="20"
+                            left="20"/>
+                </padding>
+
+
+                <Label text="Información de la inscripción"
+                       style="-fx-text-fill: #333333;
+                              -fx-font-size: 17px;
+                              -fx-font-weight: bold;"/>
+
+
+                <GridPane hgap="15"
+                          vgap="10">
+
+
+                    <Label text="Código"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="0"/>
+
+                    <TextField fx:id="txtCodigo"
+                               promptText="Ej: INS-002"
+                               prefWidth="220"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0"/>
+
+
+                    <Label text="Fecha"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="0"/>
+
+                    <DatePicker fx:id="dateFecha"
+                                prefWidth="220"
+                                GridPane.columnIndex="3"
+                                GridPane.rowIndex="0"/>
+
+
+                    <Label text="Cliente"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="1"/>
+
+                    <ComboBox fx:id="comboCliente"
+                              promptText="Seleccionar cliente"
+                              prefWidth="220"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="1"/>
+
+
+                    <Label text="Plan"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="1"/>
+
+                    <ComboBox fx:id="comboPlan"
+                              promptText="Seleccionar plan"
+                              prefWidth="220"
+                              GridPane.columnIndex="3"
+                              GridPane.rowIndex="1"/>
+
+
+                    <Label text="Entrenador"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="2"/>
+
+                    <ComboBox fx:id="comboEntrenador"
+                              promptText="Seleccionar entrenador"
+                              prefWidth="220"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="2"/>
+
+
+                    <Label text="Duración (meses)"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="2"/>
+
+                    <TextField fx:id="txtDuracion"
+                               promptText="Ej: 3"
+                               prefWidth="220"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="2"/>
+
+
+                    <Label text="Descuento"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="3"/>
+
+                    <TextField fx:id="txtDescuento"
+                               promptText="Ej: 20000"
+                               prefWidth="220"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="3"/>
+
+                </GridPane>
+
+
+                <!-- RESUMEN DE VALORES -->
+
+                <HBox spacing="25"
+                      alignment="CENTER_LEFT">
+
+                    <VBox spacing="3">
+
+                        <Label text="Valor del plan"
+                               style="-fx-text-fill: #777777;"/>
+
+                        <Label fx:id="lblValorPlan"
+                               text="0"
+                               style="-fx-text-fill: #333333;
+                                      -fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                    </VBox>
+
+
+                    <VBox spacing="3">
+
+                        <Label text="Costo entrenador"
+                               style="-fx-text-fill: #777777;"/>
+
+                        <Label fx:id="lblCostoEntrenador"
+                               text="0"
+                               style="-fx-text-fill: #333333;
+                                      -fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                    </VBox>
+
+
+                    <VBox spacing="3">
+
+                        <Label text="VALOR FINAL"
+                               style="-fx-text-fill: #777777;"/>
+
+                        <Label fx:id="lblValorFinal"
+                               text="0"
+                               style="-fx-text-fill: #D6A84F;
+                                      -fx-font-size: 22px;
+                                      -fx-font-weight: bold;"/>
+
+                    </VBox>
+
+                </HBox>
+
+
+                <!-- BOTONES -->
+
+                <HBox spacing="10">
+
+                    <Button text="Calcular valor"
+                            onAction="#calcularValor"
+                            style="-fx-background-color: #333333;
+                                   -fx-text-fill: white;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 9 18;"/>
+
+
+                    <Button text="＋ Registrar inscripción"
+                            onAction="#crearInscripcion"
+                            style="-fx-background-color: #D6A84F;
+                                   -fx-text-fill: #171717;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 9 18;"/>
+
+
+                    <Button text="Cargar seleccionado"
+                            onAction="#cargarInscripcion"
+                            style="-fx-background-color: #555555;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 9 18;"/>
+
+
+                    <Button text="Eliminar"
+                            onAction="#eliminarInscripcion"
+                            style="-fx-background-color: #8B3A3A;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 9 18;"/>
+
+
+                    <Button text="Limpiar"
+                            onAction="#limpiar"
+                            style="-fx-background-color: #E8E1D5;
+                                   -fx-text-fill: #333333;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 9 18;"/>
+
+                </HBox>
+
+            </VBox>
+
+
+            <!-- TABLA -->
+
+            <VBox spacing="10"
+                  VBox.vgrow="ALWAYS">
+
+                <Label text="Inscripciones registradas"
+                       style="-fx-text-fill: #333333;
+                              -fx-font-size: 17px;
+                              -fx-font-weight: bold;"/>
+
+
+                <TableView fx:id="tablaInscripciones"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="colCodigo"
+                                     text="Código"
+                                     prefWidth="110"/>
+
+                        <TableColumn fx:id="colFecha"
+                                     text="Fecha"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="colCliente"
+                                     text="Cliente"
+                                     prefWidth="180"/>
+
+                        <TableColumn fx:id="colPlan"
+                                     text="Plan"
+                                     prefWidth="180"/>
+
+                        <TableColumn fx:id="colDuracion"
+                                     text="Meses"
+                                     prefWidth="90"/>
+
+                        <TableColumn fx:id="colValor"
+                                     text="Valor final"
+                                     prefWidth="150"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

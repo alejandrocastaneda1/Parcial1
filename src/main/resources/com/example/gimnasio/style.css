@@ -1,0 +1,161 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #0f172a;
+}
+
+
+/* =========================
+   BARRA LATERAL
+   ========================= */
+
+.sidebar {
+    -fx-background-color: #111827;
+}
+
+.brand {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-footer {
+    -fx-text-fill: #475569;
+    -fx-font-size: 11px;
+}
+
+
+/* =========================
+   BOTONES DEL MENÚ
+   ========================= */
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px 15px;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+}
+
+.nav-button-active {
+    -fx-background-color: #14b8a6;
+    -fx-text-fill: white;
+}
+
+
+/* =========================
+   CONTENIDO
+   ========================= */
+
+.content {
+    -fx-background-color: #0f172a;
+}
+
+.page-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.page-subtitle {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 14px;
+}
+
+
+/* =========================
+   TARJETAS DE ESTADÍSTICAS
+   ========================= */
+
+.stat-card {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 16px;
+    -fx-padding: 20px;
+    -fx-border-color: #263449;
+    -fx-border-radius: 16px;
+}
+
+.stat-card:hover {
+    -fx-background-color: #243247;
+}
+
+.stat-title {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.stat-number {
+    -fx-text-fill: #14b8a6;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.stat-description {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 11px;
+}
+
+
+/* =========================
+   TARJETAS GRANDES
+   ========================= */
+
+.large-card {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 16px;
+    -fx-padding: 24px;
+    -fx-border-color: #263449;
+    -fx-border-radius: 16px;
+}
+
+.card-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.card-description {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+}
+
+.info-title {
+    -fx-text-fill: #14b8a6;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+
+/* =========================
+   BOTONES DE ACCIÓN
+   ========================= */
+
+.action-button {
+    -fx-background-color: #263449;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px 15px;
+    -fx-background-radius: 9px;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #14b8a6;
+    -fx-text-fill: white;
+}

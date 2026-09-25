@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.gimnasio.viewController.ClienteViewController">
+
+    <!-- ========================= -->
+    <!-- BARRA LATERAL -->
+    <!-- ========================= -->
+
+    <left>
+        <VBox prefWidth="230"
+              style="-fx-background-color: #171717;">
+
+            <padding>
+                <Insets top="28" right="18" bottom="25" left="18"/>
+            </padding>
+
+            <!-- LOGO -->
+            <VBox spacing="3">
+                <Label text="FITZONE"
+                       style="-fx-text-fill: #d6a85f;
+                              -fx-font-size: 25px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="GYM MANAGEMENT"
+                       style="-fx-text-fill: #888888;
+                              -fx-font-size: 11px;
+                              -fx-letter-spacing: 2px;"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- MENU -->
+            <VBox spacing="8">
+
+                <Button text="⌂    Inicio"
+                        onAction="#abrirInicio"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+                <Button text="👤    Clientes"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: #d6a85f;
+                               -fx-text-fill: #171717;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+                <Button text="▣    Planes"
+                        onAction="#abrirPlanes"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+                <Button text="◆    Beneficios"
+                        onAction="#abrirBeneficios"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="Sistema de Gestión"
+                   style="-fx-text-fill: #666666;
+                          -fx-font-size: 11px;"/>
+
+        </VBox>
+    </left>
+
+
+    <!-- ========================= -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ========================= -->
+
+    <center>
+
+        <VBox spacing="25"
+              style="-fx-background-color: #f4efe6;">
+
+            <padding>
+                <Insets top="35" right="40" bottom="35" left="40"/>
+            </padding>
+
+            <!-- ENCABEZADO -->
+            <VBox spacing="6">
+
+                <Label text="Clientes"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 30px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="Administra los clientes registrados en el gimnasio."
+                       style="-fx-text-fill: #777777;
+                              -fx-font-size: 14px;"/>
+
+            </VBox>
+
+
+            <!-- ========================= -->
+            <!-- FORMULARIO -->
+            <!-- ========================= -->
+
+            <VBox spacing="15"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+
+                <Label text="Registrar cliente"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 18px;
+                              -fx-font-weight: bold;"/>
+
+                <GridPane hgap="15" vgap="12">
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                    </columnConstraints>
+
+
+                    <!-- NOMBRE -->
+                    <Label text="Nombre completo"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtNombre"
+                               promptText="Nombre del cliente"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="1"
+                               style="-fx-background-color: #f4f1eb;
+                                      -fx-background-radius: 7;
+                                      -fx-border-color: #ddd5c8;
+                                      -fx-border-radius: 7;"/>
+
+
+                    <!-- CÉDULA -->
+                    <Label text="Documento"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtCedula"
+                               promptText="Número de documento"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"
+                               style="-fx-background-color: #f4f1eb;
+                                      -fx-background-radius: 7;
+                                      -fx-border-color: #ddd5c8;
+                                      -fx-border-radius: 7;"/>
+
+
+                    <!-- TELÉFONO -->
+                    <Label text="Teléfono"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtTelefono"
+                               promptText="Número de teléfono"
+                               GridPane.columnIndex="2"
+                               GridPane.rowIndex="1"
+                               style="-fx-background-color: #f4f1eb;
+                                      -fx-background-radius: 7;
+                                      -fx-border-color: #ddd5c8;
+                                      -fx-border-radius: 7;"/>
+
+
+                    <!-- CORREO -->
+                    <Label text="Correo"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="0"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtCorreo"
+                               promptText="correo@ejemplo.com"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="1"
+                               style="-fx-background-color: #f4f1eb;
+                                      -fx-background-radius: 7;
+                                      -fx-border-color: #ddd5c8;
+                                      -fx-border-radius: 7;"/>
+
+
+                    <!-- EDAD -->
+                    <Label text="Edad"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="2"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <TextField fx:id="txtEdad"
+                               promptText="Edad"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="3"
+                               style="-fx-background-color: #f4f1eb;
+                                      -fx-background-radius: 7;
+                                      -fx-border-color: #ddd5c8;
+                                      -fx-border-radius: 7;"/>
+
+
+                    <!-- FECHA -->
+                    <Label text="Fecha de registro"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"
+                           style="-fx-text-fill: #555555;
+                                  -fx-font-size: 12px;"/>
+
+                    <DatePicker fx:id="dateFecha"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="3"
+                                prefWidth="180"
+                                style="-fx-background-color: #f4f1eb;
+                                       -fx-background-radius: 7;"/>
+
+                </GridPane>
+
+
+                <!-- BOTONES -->
+
+                <HBox spacing="10">
+
+                    <Button text="＋  Registrar cliente"
+                            onAction="#crearCliente"
+                            style="-fx-background-color: #d6a85f;
+                                   -fx-text-fill: #171717;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+                    <Button text="Cargar"
+                            onAction="#cargarCliente"
+                            style="-fx-background-color: #292929;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+                    <Button text="Eliminar"
+                            onAction="#eliminarCliente"
+                            style="-fx-background-color: #8d4545;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+                    <Button text="Limpiar"
+                            onAction="#limpiar"
+                            style="-fx-background-color: #e4dfd6;
+                                   -fx-text-fill: #333333;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+                </HBox>
+
+            </VBox>
+
+
+            <!-- ========================= -->
+            <!-- TABLA -->
+            <!-- ========================= -->
+
+            <VBox spacing="12"
+                  VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+
+                <Label text="Clientes registrados"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 18px;
+                              -fx-font-weight: bold;"/>
+
+                <TableView fx:id="tablaClientes"
+                           VBox.vgrow="ALWAYS"
+                           style="-fx-background-radius: 8;">
+
+                    <columns>
+
+                        <TableColumn fx:id="colNombre"
+                                     text="Nombre"
+                                     prefWidth="170"/>
+
+                        <TableColumn fx:id="colCedula"
+                                     text="Documento"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="colTelefono"
+                                     text="Teléfono"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="colCorreo"
+                                     text="Correo"
+                                     prefWidth="190"/>
+
+                        <TableColumn fx:id="colEdad"
+                                     text="Edad"
+                                     prefWidth="70"/>
+
+                        <TableColumn fx:id="colFecha"
+                                     text="Fecha de registro"
+                                     prefWidth="140"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

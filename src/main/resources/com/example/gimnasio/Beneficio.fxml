@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.gimnasio.viewController.BeneficioViewController">
+
+    <!-- ========================= -->
+    <!-- BARRA LATERAL -->
+    <!-- ========================= -->
+
+    <left>
+
+        <VBox prefWidth="230"
+              style="-fx-background-color: #171717;">
+
+            <padding>
+                <Insets top="28"
+                        right="18"
+                        bottom="25"
+                        left="18"/>
+            </padding>
+
+
+            <!-- LOGO -->
+
+            <VBox spacing="3">
+
+                <Label text="FITZONE"
+                       style="-fx-text-fill: #d6a85f;
+                              -fx-font-size: 25px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="GYM MANAGEMENT"
+                       style="-fx-text-fill: #888888;
+                              -fx-font-size: 11px;"/>
+
+            </VBox>
+
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <!-- MENU -->
+
+            <VBox spacing="8">
+
+                <Button text="⌂    Inicio"
+                        onAction="#abrirInicio"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+
+                <Button text="👤    Clientes"
+                        onAction="#abrirClientes"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+
+                <Button text="▣    Planes"
+                        onAction="#abrirPlanes"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #cccccc;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+
+                <Button text="◆    Beneficios"
+                        prefWidth="194"
+                        prefHeight="42"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color: #d6a85f;
+                               -fx-text-fill: #171717;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;"/>
+
+            </VBox>
+
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <Label text="Sistema de Gestión"
+                   style="-fx-text-fill: #666666;
+                          -fx-font-size: 11px;"/>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- ========================= -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ========================= -->
+
+    <center>
+
+        <VBox spacing="25"
+              style="-fx-background-color: #f4efe6;">
+
+            <padding>
+                <Insets top="35"
+                        right="40"
+                        bottom="35"
+                        left="40"/>
+            </padding>
+
+
+            <!-- ENCABEZADO -->
+
+            <VBox spacing="6">
+
+                <Label text="Beneficios"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 30px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="Administra los beneficios que pueden incluir los planes del gimnasio."
+                       style="-fx-text-fill: #777777;
+                              -fx-font-size: 14px;"/>
+
+            </VBox>
+
+
+            <!-- ========================= -->
+            <!-- FORMULARIO -->
+            <!-- ========================= -->
+
+            <VBox spacing="15"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+
+                <Label text="Registrar beneficio"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 18px;
+                              -fx-font-weight: bold;"/>
+
+
+                <Label text="Nombre del beneficio"
+                       style="-fx-text-fill: #555555;
+                              -fx-font-size: 12px;"/>
+
+                <TextField fx:id="txtNombre"
+                           promptText="Ej: Acceso a piscina"/>
+
+
+                <Label text="Descripción"
+                       style="-fx-text-fill: #555555;
+                              -fx-font-size: 12px;"/>
+
+                <TextArea fx:id="txtDescripcion"
+                          promptText="Describe el beneficio..."
+                          prefHeight="80"/>
+
+
+                <!-- BOTONES -->
+
+                <HBox spacing="10">
+
+                    <Button text="＋  Registrar beneficio"
+                            onAction="#crearBeneficio"
+                            style="-fx-background-color: #d6a85f;
+                                   -fx-text-fill: #171717;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+
+                    <Button text="Cargar"
+                            onAction="#cargarBeneficio"
+                            style="-fx-background-color: #292929;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+
+                    <Button text="Eliminar"
+                            onAction="#eliminarBeneficio"
+                            style="-fx-background-color: #8d4545;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+
+                    <Button text="Limpiar"
+                            onAction="#limpiar"
+                            style="-fx-background-color: #e4dfd6;
+                                   -fx-text-fill: #333333;
+                                   -fx-background-radius: 7;
+                                   -fx-padding: 10 18;
+                                   -fx-cursor: hand;"/>
+
+                </HBox>
+
+            </VBox>
+
+
+            <!-- ========================= -->
+            <!-- TABLA -->
+            <!-- ========================= -->
+
+            <VBox spacing="12"
+                  VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+
+                <Label text="Beneficios registrados"
+                       style="-fx-text-fill: #222222;
+                              -fx-font-size: 18px;
+                              -fx-font-weight: bold;"/>
+
+
+                <TableView fx:id="tablaBeneficios"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="colNombre"
+                                     text="Nombre"
+                                     prefWidth="260"/>
+
+                        <TableColumn fx:id="colDescripcion"
+                                     text="Descripción"
+                                     prefWidth="500"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
